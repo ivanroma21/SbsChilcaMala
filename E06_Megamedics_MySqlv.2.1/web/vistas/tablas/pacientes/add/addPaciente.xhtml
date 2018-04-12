@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+       <p:dialog id="adddiag"
+                  widgetVar="addPaciente"
+                  modal="true"                  
+                  resizable="false"
+                  appendTo="@(body)"
+                  header="Nuevo Paciente"
+                  responsive="true"
+                  closeOnEscape="true">
+            <h:form id="addTrami">
+                <p:panelGrid >
+                    <p:growl id="msg" showDetail="true" autoUpdate="true"/>
+                </p:panelGrid>
+                <p:panelGrid id="frmProd" columns="8">
+                   
+                            <h:outputLabel value="Cod. Estab" for="estab"/>
+                            <p:inputText class="form-control" id="estab" disabled="true"
+                                         value="000006072" style="width: 100%"/>
+                       
+                            <h:outputLabel value="H.Clinica" for="hc"/>
+                            <p:inputText class="form-control" id="hc" 
+                                         value="#{pacienteController.paciente.HPaciente}" style="width: 100%"/>
+                        
+                            <h:outputLabel value="DNI" for="dni"/>
+                            <p:inputText class="form-control" id="dni" 
+                                         value="#{pacienteController.paciente.DNI}" style="width: 100%"/>
+                        
+                            <h:outputLabel value="Fecha Nacimiento" for="fn"/>
+                            <p:inputText class="form-control" id="fn"
+                                         value="#{pacienteController.paciente.fec_nac}" style="width: 100%"/>
+                        
+                            <h:outputLabel value="Ap. Paterno" for="ap"/>
+                            <p:inputText class="form-control" id="ap" 
+                                         value="#{pacienteController.paciente.ap_Paterno}" style="width: 100%"/>
+                       
+                            <h:outputLabel value="Ap. Materno" for="am"/>
+                            <p:inputText class="form-control" id="am" 
+                                         value="#{pacienteController.paciente.ap_Materno}" style="width: 100%"/>
+                        
+                            <h:outputLabel value="Nombres" for="nom"/>
+                            <p:inputText class="form-control" id="nom" 
+                                         value="#{pacienteController.paciente.nombres}" style="width: 100%"/>
+                        
+                            <h:outputLabel value="Sexo" for="sx"/>
+                            <p:inputText class="form-control" id="sx" 
+                                         value="#{pacienteController.paciente.sexo}" style="width: 100%"/>
+                        
+                            <h:outputLabel value="Edad" for="ed"/>
+                            <p:inputText class="form-control" id="ed"
+                                         value="#{pacienteController.paciente.edad}" style="width: 100%"/>
+                       
+                            <h:outputLabel value="Tipo Edad" for="te"/>
+                            <p:inputText class="form-control" id="te" 
+                                         value="#{pacienteController.paciente.tipo_Edad}" style="width: 100%"/>
+                       
+                            <h:outputLabel value="Estad. Gestando" for="eg"/>
+                            <p:inputText class="form-control" id="eg" 
+                                         value="#{pacienteController.paciente.estado_gestando}" style="width: 100%"/>
+                        
+                            <h:outputLabel value="Cod. Dpto" for="cdpto"/>
+                            <p:inputText class="form-control" id="cdpto" 
+                                         value="#{pacienteController.paciente.cod_Dpto}" style="width: 100%"/>
+                        
+                            <h:outputLabel value="Cod. Prov" for="prov"/>
+                            <p:inputText class="form-control" id="prov" 
+                                         value="#{pacienteController.paciente.cod_prov}" style="width: 100%"/>
+                       
+                            <h:outputLabel value="Cod. Distrito" for="dist"/>
+                            <p:inputText class="form-control" id="dist"
+                                         value="#{pacienteController.paciente.cod_dist}" style="width: 100%"/>
+                       
+                            <h:outputLabel value="Dirección" for="dir"/>
+                            <p:inputText class="form-control" id="dir" 
+                                         value="#{pacienteController.paciente.direccion}" style="width: 100%"/>
+                       
+                            <h:outputLabel value="Acompañante" for="res"/>
+                            <p:inputText class="form-control" id="res" 
+                                         value="#{pacienteController.paciente.responsable}" style="width: 100%"/>
+                        
+                            <h:outputLabel value="Edad Acompañante" for="edres"/>
+                            <p:inputText class="form-control" id="edres" 
+                                         value="#{pacienteController.paciente.edad_responsable}" style="width: 100%"/>
+                       
+                            <h:outputLabel value="DNI Acompañante" for="dnires"/>
+                            <p:inputText class="form-control" id="dnires" 
+                                         value="#{pacienteController.paciente.dni_responsable}" style="width: 100%"/>
+                       
+                            <h:outputLabel value="Fecha Registro" for="fecreg"/>
+                            <p:inputText class="form-control" id="fecreg"
+                                         value="#{pacienteController.paciente.fec_registro}" style="width: 100%"/>
+                       
+                            <h:outputLabel value="Habilitado" for="hab"/>
+                            <p:inputText class="form-control" id="hab" 
+                                         value="#{pacienteController.paciente.habilitado}" style="width: 100%"/>
+                       
+                            <h:outputLabel value="Tipo Edad Acompñante" for="teres"/>
+                            <p:inputText class="form-control" id="teres" 
+                                         value="#{pacienteController.paciente.tipo_edad_resp}" style="width: 100%"/>
+                        
+                            <h:outputLabel value="Digitador" for="dig"/>
+                            <p:inputText class="form-control" id="dig" 
+                                         value="#{pacienteController.paciente.vdfrespdigitacion}" style="width: 100%"/>
+                       
+                            <h:outputLabel value="Fte_Fto" for="Fte_Fto"/>
+                            <p:inputText class="form-control" id="Fte_Fto"
+                                         value="#{pacienteController.paciente.fte_fto}" style="width: 100%"/>
+                       
+                            <h:outputLabel value="Etnia" for="etn"/>
+                            <p:inputText class="form-control" id="etn" 
+                                         value="#{pacienteController.paciente.etnia}" style="width: 100%"/>
+                        
+                            <h:outputLabel value="SHClinica" for="shcl"/>
+                            <p:inputText class="form-control" id="shcl" 
+                                         value="#{pacienteController.paciente.SHClinica}" style="width: 100%"/>
+                      
+                    <br/>
+                    <p:commandButton value="Ingresar"
+                                     icon="ui-icon-check"
+                                     actionListener="#{pacienteController.addTramite()}"
+                                     oncomplete="handleSubmit(args,'addPaciente');"
+                                     update="addTrami :frm:msg :frm:data"/>
+
+                    <p:commandButton value="Cancelar"
+                                     icon="ui-icon-close" actionListener="#{pacienteController.limpiar()}"
+                                     onclick="PF('addTramite').hide()"
+                                     immediate="true"/>
+                </p:panelGrid>
+            </h:form>
+        </p:dialog>
+    </h:body>
+</html>
+

@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../../vistas/templates/#{seguridad.us.template}">
+
+            <ui:define name="m-pac">
+                <li class="active"><a href="pacientes.xhtml">Pacientes</a></li>
+            </ui:define>
+
+            <ui:define name="content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>Pacientes</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">  
+                        <h:form id="frm">
+                            <p:growl id="msg" showDetail="true" autoUpdate="true"/>
+                            <p:dataTable id="data" value="#{pacienteController.lstpacientes}" filteredValue="#{pacienteController.lstpacientes2}" var="pp"
+                                         paginator="true" rows="10" >
+                                <p:column style="width: 50px">
+                                    <p:rowToggler />
+                                </p:column>
+                                <p:column headerText="Cod. Establecimiento" style="width: 20%" filterBy="#{pp.cod_establec1}" filterMatchMode="contains">
+                                    <h:outputText value="#{pp.cod_establec1}"/>
+                                </p:column>
+                                <p:column headerText="H.C" style="width: 20%" filterBy="#{pp.HPaciente}" filterMatchMode="contains">
+                                    <h:outputText value="#{pp.HPaciente}"/>
+                                </p:column>
+                                <p:column headerText="DNI" style="width: 20%" filterBy="#{pp.DNI}" filterMatchMode="contains">
+                                    <h:outputText value="#{pp.DNI}"/>
+                                </p:column>
+                                <p:column headerText="Paciente" style="width: 60%" filterBy="#{pp.nombres} #{pp.ap_Paterno} #{pp.ap_Materno}" filterMatchMode="contains">
+                                    <h:outputText value="#{pp.nombres} #{pp.ap_Paterno} #{pp.ap_Materno} "/>
+                                </p:column>
+
+                                <p:rowExpansion>
+                                    <p:panelGrid id="pnlgre" columns="6">
+                                        <h:outputLabel value="Sexo: "/>
+                                        <h:outputText value="#{pp.sexo}"/>
+                                        <h:outputLabel value="Edad: "/>
+                                        <h:outputText value="#{pp.edad} #{pp.tipo_Edad}"/>
+                                        <h:outputLabel value="Estad. Gestando "/>
+                                        <h:outputText value="#{pp.estado_gestando}"/>
+                                        <h:outputLabel value="Ubigeo:  "/>
+                                        <h:outputText value="#{pp.cod_Dpto}#{pp.cod_prov}#{pp.cod_dist}"/>
+                                        <h:outputLabel value="Acompañante: "/>
+                                        <h:outputText value="#{pp.responsable}"/>
+                                        <h:outputLabel value="Fecha. Registro: "/>
+                                        <h:outputText value="#{pp.fec_registro}"/>
+                                        <h:outputLabel value="Digitador "/>
+                                        <h:outputText value="#{pp.vdfrespdigitacion}"/>
+                                        <h:outputLabel value="Dirección: "/>
+                                        <h:outputText value="#{pp.direccion}"/>
+                                    </p:panelGrid>
+                                </p:rowExpansion>
+
+                                <f:facet name="footer">
+                                    <p:commandButton value="Nuevo"
+                                                     actionListener="#{pacienteController.preparedPacientes()}"
+                                                     oncomplete="PF('addPaciente').show()"
+                                                     update=":addTrami"
+                                                     />
+                                </f:facet>
+
+                            </p:dataTable>
+                        </h:form>
+                        <ui:include src="add/addPaciente.xhtml"/>
+                    </div>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

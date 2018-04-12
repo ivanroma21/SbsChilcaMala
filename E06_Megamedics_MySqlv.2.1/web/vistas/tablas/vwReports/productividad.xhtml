@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../../../vistas/templates/#{seguridad.us.template}">
+
+            <ui:define name="m-prod">
+                <li class="active"><a href="productividad.xhtml">Productividad</a></li>
+            </ui:define>
+            <ui:define name="content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>Productividad</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">  
+                        <h:form id="form">
+                            <p:growl id="msg" showSummary="true"/>
+                            
+                            <p:dataTable id="data" value="#{view4Controller.lstvw4}" 
+                                         var="vv" paginator="true" rows="10" filteredValue="#{view4Controller.lstvw42}">
+                            
+                                
+                                
+                                <p:column headerText="Cod. Doctor" style="width: 15%" >
+                                    <h:outputText value="#{vv.CODPSAL}" />
+                                </p:column>
+                                <p:column headerText="UPS" style="width: 25%">
+                                    <h:outputText value="#{vv.DESC_SERVS}" />
+                                </p:column>
+                                <p:column headerText="Nombre Personal" style="width: 40%" filterBy="#{vv.NOMBRE}" filterMatchMode="contains">
+                                    <h:outputText value="#{vv.NOMBRE}" />
+                                </p:column>
+                                <p:column headerText="Total" style="width: 15%">
+                                    <h:outputText value="#{vv.total}" />
+                                </p:column>
+                            </p:dataTable>
+                            
+                            <h:commandLink>
+                                <p:graphicImage url="../../../resources/images/excel.png" width="24"/>
+                                <p:dataExporter type="pdf" target="data" fileName="Productividad"/>
+                            </h:commandLink>
+                        </h:form>
+                    </div>
+                </div>
+            </ui:define>
+
+
+        </ui:composition>
+
+    </body>
+</html>

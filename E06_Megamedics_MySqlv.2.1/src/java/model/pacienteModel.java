@@ -7,8 +7,8 @@ public class pacienteModel {
     private String Cod_establec1, HPaciente, DNI, Ap_Paterno, Ap_Materno,
             Nombres, Sexo, Edad, Tipo_Edad, Estado_gestando, Cod_Dpto, Cod_prov,
             Cod_dist, Direccion, responsable, edad_responsable, dni_responsable,
-            habilitado, tipo_edad_resp, Vdfrespdigitacion, fte_fto, etnia, SHClinica;
-    private Date Fec_nac, Fec_registro;
+            habilitado, tipo_edad_resp, Vdfrespdigitacion, fte_fto, etnia, SHClinica; //Variables de texto
+    private Date Fec_nac, Fec_registro; //Variables de fecha
 
     public String getCod_establec1() {
         return Cod_establec1;
